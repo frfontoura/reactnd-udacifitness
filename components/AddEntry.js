@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { View, TouchableOpacity, Text, StyleSheet, Platform } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
 import { connect } from 'react-redux'
+import { NavigationActions } from 'react-navigation'
 
 import { getMetricMetaInfo, timeToString, getDailyReminderValue } from '../utils/helpers'
 import { submitEntry, removeEntry } from '../utils/api'
@@ -79,7 +80,7 @@ class AddEntry extends Component {
             eat: 0,
         }))
 
-        // navigate to homw
+        this.toHome()
 
         submitEntry({ key, entry })
 
@@ -93,9 +94,13 @@ class AddEntry extends Component {
             [key]: getDailyReminderValue()
         }))
 
-        //route to home
+        this.toHome()
 
         removeEntry(key)
+    }
+
+    toHome = () => {
+        this.props.navigation.dispatch(NavigationActions.back({ key: 'AddEntry' }))
     }
 
     render() {
