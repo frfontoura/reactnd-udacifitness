@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
-import { ScrollView, Text, StyleSheet } from 'react-native'
+import { ScrollView, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 
-import { timeToString, getDailyReminderValue } from '../utils/helpers'
 import MetricCard from './MetricCard'
-import { white } from '../utils/colors'
 import TextButton from './TextButton'
+import { white } from '../utils/colors'
 import { addEntry } from '../actions'
 import { removeEntry } from '../utils/api'
+import { timeToString, getDailyReminderValue } from '../utils/helpers'
 
 class EntryDetail extends Component {
 
